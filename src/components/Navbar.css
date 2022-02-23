@@ -1,0 +1,9 @@
+.container {
+    background: #aaa;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+}

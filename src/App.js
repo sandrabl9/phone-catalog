@@ -8,6 +8,7 @@ function App() {
   const [phones, setPhones] = useState([]);
 
   const initialUrl = "http://localhost:3001/api/phones/"
+  
 
   const fetchPhones = (url) => {
     fetch(url)
@@ -21,6 +22,7 @@ function App() {
     fetchPhones(initialUrl);
 
   }, []);
+
 
   return (
     <div>

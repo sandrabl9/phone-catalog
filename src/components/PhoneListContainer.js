@@ -10,11 +10,17 @@ const PhoneListContainer = ({phones}) => {
         setDetail(true);
     };
 
+    const lessDetail = () => {
+        setDetail(false);
+    };
+
   
 
 
 
     return (
+
+    
         
         <div className= 'grid'>
 
@@ -27,11 +33,15 @@ const PhoneListContainer = ({phones}) => {
                             <p>{item.color}</p>
                             <h3>{item.price}</h3>
                             
-                            <div>
+                            <div key={index}>
                                 {!detail && (
-                                    <button className='btn' onClick={moreDetail}>More info</button>
+                                    <button type='button' className='btn' onClick={moreDetail}>More info</button>
                                 )}
-                                {detail && (<p>{item.description}</p>)}
+                                {detail && (<div>
+                                <p>{item.description}</p> 
+                                <button type='button' className='btn' onClick={lessDetail}>Less info</button>
+                                </div>
+                                )}
                                 
                                 
                             </div>

@@ -1,20 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
+import PhoneDetailComponent from './PhoneDetailComponent';
 
 import './PhoneListContainer.css';
 
 const PhoneListContainer = ({phones}) => {
-    const [detail, setDetail] = useState(false);
-
-
-    const moreDetail = () => {
-        setDetail(true);
-    };
-
-    const lessDetail = () => {
-        setDetail(false);
-    };
-
-  
+    
 
 
 
@@ -25,26 +15,16 @@ const PhoneListContainer = ({phones}) => {
         <div className= 'grid'>
 
             {
-                phones.map((item, index) => (
-                    <div key={index}>
+                phones.map((item) => (
+                    <div key={item.id}>
                         <div className='card'>
                             <img src={item.image} alt='mobile'/>
                             <h2>{item.title}</h2>
                             <p>{item.color}</p>
                             <h3>{item.price}</h3>
                             
-                            <div key={index}>
-                                {!detail && (
-                                    <button type='button' className='btn' onClick={moreDetail}>More info</button>
-                                )}
-                                {detail && (<div>
-                                <p>{item.description}</p> 
-                                <button type='button' className='btn' onClick={lessDetail}>Less info</button>
-                                </div>
-                                )}
-                                
-                                
-                            </div>
+
+                             <PhoneDetailComponent phone={item.description} />
                             
                         </div>
 

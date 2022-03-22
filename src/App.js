@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
+
 import PhoneListContainer from './components/PhoneListContainer'; 
 
 
@@ -7,9 +8,10 @@ function App() {
 
   const [phones, setPhones] = useState([]);
 
-  const initialUrl = "http://localhost:3001/api/phones/"
-  
 
+
+  const initialUrl = "http://localhost:3001/api/phones/";
+ 
   const fetchPhones = (url) => {
     fetch(url)
     .then(response => response.json())
@@ -20,6 +22,7 @@ function App() {
 
   useEffect(() => {
     fetchPhones(initialUrl);
+    
 
   }, []);
 
@@ -28,7 +31,9 @@ function App() {
     <div>
     <Navbar/>
 
+
     <PhoneListContainer phones={phones} />
+    
 
     </div>
   );
